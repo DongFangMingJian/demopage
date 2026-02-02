@@ -1,0 +1,64 @@
+{
+  "articles": [
+    {
+      "id": 1,
+      "title": "前端开发中的CSS Grid布局详解",
+      "excerpt": "深入探讨CSS Grid布局的核心概念、实用技巧以及在实际项目中的应用案例，帮助你彻底掌握这一强大的布局工具。",
+      "date": "2023-10-15",
+      "readTime": "8分钟",
+      "tags": ["前端开发", "CSS", "布局"],
+      "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "url": "article-css-grid.html"
+    },
+    {
+      "id": 2,
+      "title": "JavaScript闭包的工作原理与实际应用",
+      "excerpt": "详细解析JavaScript闭包的概念、工作原理，并展示在函数式编程、模块化和数据封装中的实际应用场景。",
+      "date": "2023-10-10",
+      "readTime": "10分钟",
+      "tags": ["JavaScript", "编程", "前端开发"],
+      "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "url": "article-javascript-closure.html"
+    },
+    {
+      "id": 3,
+      "title": "静态网站生成器的优势与选择",
+      "excerpt": "对比分析Hugo、Jekyll、Gatsby等主流静态网站生成器的特点，帮助你根据项目需求选择最合适的工具。",
+      "date": "2023-10-05",
+      "readTime": "12分钟",
+      "tags": ["静态网站", "工具", "部署"],
+      "image": "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "url": "article-static-site-generators.html"
+    },
+    {
+      "id": 4,
+      "title": "如何建立高效的学习系统",
+      "excerpt": "分享我多年来总结的学习方法、知识管理技巧和工具使用经验，帮助建立持续成长的学习系统。",
+      "date": "2023-09-28",
+      "readTime": "15分钟",
+      "tags": ["学习方法", "个人成长", "效率"],
+      "image": "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "url": "article-learning-system.html"
+    },
+    {
+      "id": 5,
+      "title": "响应式设计的最佳实践与常见陷阱",
+      "excerpt": "分享响应式设计的核心原则、实用技巧以及在跨设备开发中需要避免的常见问题和解决方案。",
+      "date": "2023-09-20",
+      "readTime": "9分钟",
+      "tags": ["响应式设计", "前端开发", "CSS"],
+      "image": "https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "url": "article-responsive-design.html"
+    },
+    {
+      "id": 6,
+      "title": "数字时代的知识管理工具对比",
+      "excerpt": "详细对比Notion、Obsidian、Roam Research等知识管理工具的特点和适用场景，帮助你选择最适合自己的第二大脑。",
+      "date": "2023-09-15",
+      "readTime": "14分钟",
+      "tags": ["工具", "知识管理", "效率"],
+      "image": "https://images.unsplash.com/photo-1453928582365-b6ad33cbcf64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "url": "article-knowledge-management.html"
+    }
+  ]
+}

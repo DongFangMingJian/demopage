@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人门户 | 我的数字空间</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 全局样式 */
+        :root {
+            --primary-color: #4a6fa5;
+            --secondary-color: #6b8cbc;
+            --accent-color: #ff7e5f;
+            --text-color: #333;
+            --bg-color: #f9f9f9;
+            --card-bg: #ffffff;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --border-radius: 16px;
+            --transition: all 0.3s ease;
+        }
+
+        .dark-mode {
+            --primary-color: #6b8cbc;
+            --secondary-color: #4a6fa5;
+            --accent-color: #ff9e80;
+            --text-color: #f0f0f0;
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --shadow-color: rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: var(--transition);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* 头部和问候语 */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--secondary-color);
+        }
+
+        .greeting {
+            text-align: center;
+            margin: 40px 0 60px;
+        }
+
+        .greeting h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .greeting p {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* 夜间模式切换 */
+        .theme-switch-wrapper {
+            display: flex;
+            align-items: center;
+        }
+
+        .theme-switch {
+            display: inline-block;
+            height: 34px;
+            position: relative;
+            width: 60px;
+        }
+
+        .theme-switch input {
+            display: none;
+        }
+
+        .slider {
+            background-color: #ccc;
+            bottom: 0;
+            cursor: pointer;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transition: var(--transition);
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            background-color: #fff;
+            bottom: 4px;
+            content: "";
+            height: 26px;
+            left: 4px;
+            position: absolute;
+            transition: var(--transition);
+            width: 26px;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--primary-color);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        .theme-label {
+            margin-left: 10px;
+            font-weight: 600;
+        }
+
+        /* 卡片布局 */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: 0 10px 20px var(--shadow-color);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px var(--shadow-color);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+
+        .card-icon {
+            font-size: 2.8rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            height: 80px;
+            width: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(74, 111, 165, 0.1);
+            border-radius: 50%;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+
+        .card-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            margin-top: auto;
+        }
+
+        .card-link:hover {
+            background-color: var(--accent-color);
+            transform: scale(1.05);
+        }
+
+        /* 页脚 */
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(74, 111, 165, 0.2);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .greeting h1 {
+                font-size: 2.5rem;
+            }
+            
+            .greeting p {
+                font-size: 1rem;
+            }
+            
+            .cards-container {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 20px;
+            }
+            
+            .card {
+                padding: 25px 20px;
+            }
+            
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .theme-switch-wrapper {
+                margin-top: 20px;
+                align-self: flex-end;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .greeting h1 {
+                font-size: 2rem;
+            }
+            
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            body {
+                padding: 10px;
+            }
+        }
+
+        /* 动画效果 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card {
+            animation: fadeIn 0.5s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <h2><i class="fas fa-user-circle"></i> 个人门户</h2>
+            </div>
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox" />
+                    <div class="slider"></div>
+                </label>
+                <div class="theme-label">夜间模式</div>
+            </div>
+        </header>
+
+        <section class="greeting">
+            <h1 id="greeting-text">你好，朋友！</h1>
+            <p>欢迎来到我的个人数字空间，这里整合了我常用的在线工具和资源。</p>
+        </section>
+
+        <main class="cards-container" id="cards-container">
+            <!-- 卡片将通过JavaScript动态生成 -->
+        </main>
+
+        <footer>
+            <p>个人门户 | 设计响应式，支持夜间模式与移动端适配</p>
+            <p>最后更新: <span id="current-date"></span></p>
+            <p id="card-count">当前卡片数量: <span id="count">0</span></p>
+        </footer>
+    </div>
+
+    <!-- 加载配置和共享组件 -->
+    <script src="config.js"></script>
+    <script src="shared/darkmode.js"></script>
+    
+    <script>
+        // ======================
+        // 首页功能脚本
+        // ======================
+        
+        // 根据时间显示不同的问候语
+        function updateGreeting() {
+            const hour = new Date().getHours();
+            const greetingElement = document.getElementById('greeting-text');
+            let greeting;
+            
+            if (hour < 6) {
+                greeting = "深夜好，夜猫子！";
+            } else if (hour < 12) {
+                greeting = "早上好，新的一天开始了！";
+            } else if (hour < 14) {
+                greeting = "中午好，休息一下吧！";
+            } else if (hour < 18) {
+                greeting = "下午好，工作顺利吗？";
+            } else if (hour < 22) {
+                greeting = "晚上好，今天过得如何？";
+            } else {
+                greeting = "夜深了，注意休息哦！";
+            }
+            
+            greetingElement.textContent = greeting;
+        }
+
+        // 生成卡片HTML
+        function createCardHTML(card) {
+            return `
+                <div class="card" data-id="${card.id}">
+                    <div class="card-icon">
+                        <i class="${card.icon}"></i>
+                    </div>
+                    <h3>${card.title}</h3>
+                    <p>${card.description}</p>
+                    <a href="${card.link}" class="card-link" target="_blank" rel="noopener noreferrer">${card.linkText}</a>
+                </div>
+            `;
+        }
+
+        // 加载卡片数据
+        async function loadCardsData() {
+            try {
+                const response = await fetch('./data/cards.json');
+                const data = await response.json();
+                return data.cards;
+            } catch (error) {
+                console.error('加载卡片数据失败:', error);
+                // 返回默认数据
+                return [
+                    {
+                        id: 1,
+                        title: "个人博客",
+                        icon: "fas fa-blog",
+                        description: "记录我的技术学习、生活思考和创作分享。",
+                        link: "./blog.html",
+                        linkText: "访问博客"
+                    },
+                    {
+                        id: 2,
+                        title: "数字书架",
+                        icon: "fas fa-book",
+                        description: "我的电子图书馆，收藏技术书籍、文学作品。",
+                        link: "./bookshelf.html",
+                        linkText: "浏览书架"
+                    }
+                ];
+            }
+        }
+
+        // 渲染所有卡片
+        async function renderCards() {
+            const container = document.getElementById('cards-container');
+            const cards = await loadCardsData();
+            let cardsHTML = '';
+            
+            // 为每个卡片生成HTML
+            cards.forEach(card => {
+                cardsHTML += createCardHTML(card);
+            });
+            
+            // 将卡片HTML插入容器
+            container.innerHTML = cardsHTML;
+            
+            // 更新卡片数量显示
+            document.getElementById('count').textContent = cards.length;
+            
+            // 为卡片添加动画延迟
+            const cardsElements = document.querySelectorAll('.card');
+            cardsElements.forEach((card, index) => {
+                card.style.animationDelay = `${(index + 1) * 0.1}s`;
+            });
+        }
+
+        // 设置当前日期
+        function setCurrentDate() {
+            const currentDateElement = document.getElementById('current-date');
+            if (currentDateElement) {
+                const now = new Date();
+                const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                currentDateElement.textContent = now.toLocaleDateString('zh-CN', options);
+            }
+        }
+
+        // 初始化页面
+        function initPage() {
+            // 设置问候语
+            updateGreeting();
+            
+            // 设置当前日期
+            setCurrentDate();
+            
+            // 渲染卡片
+            renderCards();
+            
+            // 初始化暗色模式
+            new DarkModeComponent();
+            
+            // 为夜间模式切换按钮添加事件监听
+            document.getElementById('checkbox').addEventListener('change', function() {
+                new DarkModeComponent().toggleDarkMode();
+            });
+            
+            console.log("首页初始化完成！");
+        }
+
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', initPage);
+    </script>
+</body>
+</html>

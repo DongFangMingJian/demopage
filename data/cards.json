@@ -1,0 +1,76 @@
+{
+  "cards": [
+    {
+      "id": 1,
+      "title": "个人博客",
+      "icon": "fas fa-blog",
+      "description": "记录我的技术学习、生活思考和创作分享，包含编程、设计、阅读等内容。",
+      "link": "./blog.html",
+      "linkText": "访问博客"
+    },
+    {
+      "id": 2,
+      "title": "数字书架",
+      "icon": "fas fa-book",
+      "description": "我的电子图书馆，收藏技术书籍、文学作品和各类学习资料，提供直接下载链接。",
+      "link": "./bookshelf.html",
+      "linkText": "浏览书架"
+    },
+    {
+      "id": 3,
+      "title": "图床服务",
+      "icon": "fas fa-images",
+      "description": "图片托管服务，用于博客配图、项目展示和在线图片管理，提供直接引用链接。",
+      "link": "./image-host.html",
+      "linkText": "管理图片"
+    },
+    {
+      "id": 4,
+      "title": "收藏夹",
+      "icon": "fas fa-bookmark",
+      "description": "精心整理的书签和资源链接，涵盖技术文档、实用工具、设计灵感等。",
+      "link": "./favorites.html",
+      "linkText": "查看收藏"
+    },
+    {
+      "id": 5,
+      "title": "云空间",
+      "icon": "fas fa-cloud",
+      "description": "个人文件存储与同步空间，支持文档、图片、视频等多种格式。",
+      "link": "./cloud.html",
+      "linkText": "进入云空间"
+    },
+    {
+      "id": 6,
+      "title": "工具集",
+      "icon": "fas fa-tools",
+      "description": "常用在线工具集合，包括格式转换、代码编辑、设计工具等。",
+      "link": "./tools.html",
+      "linkText": "使用工具"
+    },
+    {
+      "id": 7,
+      "title": "学习笔记",
+      "icon": "fas fa-book-open",
+      "description": "保存我的学习笔记，包含编程、设计、阅读等内容。",
+      "link": "./notes.html",
+      "linkText": "查看笔记"
+    },
+    {
+      "id": 8,
+      "title": "音乐欣赏",
+      "icon": "fas fa-music",
+      "description": "分享一些好听的音乐并提供下载支持",
+      "link": "./music.html",
+      "linkText": "听音乐"
+    },
+    {
+      "id": 9,
+      "title": "创意实验室",
+      "icon": "fas fa-lightbulb",
+      "description": "分享一些有趣的创意和实验项目",
+      "link": "./lab.html",
+      "linkText": "进入实验室"
+    }
+  ]
+}
